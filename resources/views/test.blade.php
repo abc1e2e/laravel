@@ -108,35 +108,42 @@ input#submit:hover {
         </script>
         
         <div class="to">
-        <form class="form" action="{{route('insert')}}" method="POST">
-        
-            <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-           
-                 @if(count($errors)>0)
-						<div class="alert alert-danger">
-							@foreach($errors->all() as $err)
-							{{$err}}
-							@endforeach
-						</div>
-					@endif
+            <form class="form" action="{{route('insert')}}" method="POST">
+            
+                <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+                @if(count($errors)>0)
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $err)
+                        {{$err}}
+                        @endforeach
+                    </div>
+                @endif
                     
                 <h2>Đăng ký user</h2>
-              
-                <label style="margin-left: -280px;">Họ và tên</label>
-                <input type="text" name="hoten" required value="{{old('hoten')}}">
-                 
-                <label style="margin-left: -280px;">Email</label>
-                <input type="email" name="email" required value="{{old('email')}}">
-                <label style="margin-left: -270px;">Số điện thoại</label>
-                <input type="text" name="sdt" required value="{{old('sdt')}}">  
+                <div class="form">
+                    <label style="margin-left: -280px;">Họ và tên</label>
+                    <input type="text" name="hoten" required value="{{old('hoten')}}">
+                </div>
+                <div class="form">
+                    <label style="margin-left: -280px;">Email</label>
+                    <input type="email" name="email" required value="{{old('email')}}">
+                </div>
+                <div class="form">
+                    <label style="margin-left: -270px;">Số điện thoại</label>
+                    <input type="text" name="sdt" required value="{{old('sdt')}}">
+                </div>  
+                <div class="form">
                 <label style="margin-left: -280px;">Content</label>
-                  <textarea  class ="content" cols = "column" rows = "row" name = "content" id = "content" required value="{{('content')}}" >
+                    <textarea  class ="content" cols = "column" rows = "row" name = "content" id = "content" required value="{{('content')}}" >
 
                 </textarea>
+                </div>
                 {{-- <input type="text" name="content" required value="{{old('hoten')}}"> --}}
-                <label style="margin-left: -280px;">Image</label>
-                <input type="file" name="image" required value="{{old('image')}}">     
-                <input id="submit" type="submit" name="submit" value="Gửi">
+                <div class="form">
+                    <label style="margin-left: -280px;">Image</label>
+                    <input type="file" name="image" required value="{{old('image')}}">     
+                    <input id="submit" type="submit" name="submit" value="Gửi">
+                </div>
             </form>                
         </div>
       
