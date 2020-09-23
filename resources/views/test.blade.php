@@ -102,11 +102,7 @@ input#submit:hover {
         </div>
     @endif
         <script>
-        $(document).ready(function(){
-            setTimeout(function() {
-                $('#res_message').hide();
-                },3000);
-        });
+        
         </script>
         
         <div class="to">

@@ -37,7 +37,7 @@ class AdminController extends Controller
         $user->content=$req->content;
         $user->image=$req->image;
         $user->save();
-        $alert='Sửa thành công';
-        return redirect()->back()->with('alert',$alert);
+       // $alert='Sửa thành công';
+        return redirect('list-user');
     }
 }
