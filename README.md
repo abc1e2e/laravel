@@ -9,7 +9,7 @@
 
 ## About Laravel
 
-Sever
+
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
 - Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
@@ -59,4 +59,10 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 ## Content
-Server Requirements: xamp MYSQL(localhost)
+Server Requirements: xamp(localhost) MYSQL
+link download: https://www.apachefriends.org/index.html      
+- Step 1: git clone https://github.com/abc1e2e/laravel.git 
+- Step 2: tạo file .env kết nối DB 
+- Step 3: chạy xampp khi cài đặt xong Start Apache and MYSQL
+- Step 4: chạy url http://localhost/Test/public/dang-ki
+- Step 5: Url admin http://localhost/Test/public/list-user
