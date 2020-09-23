@@ -66,8 +66,9 @@ link download: https://www.apachefriends.org/index.html
 - Download composer link: https://getcomposer.org/download/
 
 - Step 1: git clone https://github.com/abc1e2e/laravel.git  đưa thư  mục htdocs xamppp
-- Step 2: run run command line
-- Step 3:  file .env kết nối DB 
-- Step 4: chạy xampp khi cài đặt xong Start Apache and MYSQL
-- Step 5: chạy url http://localhost/Test/public/dang-ki
-- Step 6: Url admin http://localhost/Test/public/list-user
+- Step 2: run cmd composer require facebook/graph-sdk
+- Step 3: Copy file users.sql chạy phpmyadmin tạo database users paste dòng lệnh
+- Step 4:  file .env kết nối DB 
+- Step 5: chạy xampp khi cài đặt xong Start Apache and MYSQL
+- Step 6: chạy url http://localhost/laravel/public/dang-ki
+- Step 7: Url admin http://localhost/laravel/public/list-user
