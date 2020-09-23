@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+<!-- ## About Laravel
 
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
@@ -57,7 +57,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
 ## Content
 Server Requirements: xamp(localhost) MYSQL
 link download: https://www.apachefriends.org/index.html      
