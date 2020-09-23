@@ -116,7 +116,7 @@ input#submit:hover {
                         @endforeach
                     </div>
                 @endif
-                    <h2>Đăng ký user</h2>
+                    <h2>Đăng ký User</h2>
                  <div class="form-body">
 
                     <label>Họ và tên</label>
