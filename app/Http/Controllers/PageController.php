@@ -3,16 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+require '../vendor/autoload.php';
+use Mailgun\Mailgun;
 use DB;
 use Validator;
+
 class PageController extends Controller
-{
+{   
+   
     //
     public function insertform()
     {
         return view('test');
     }
     public function insert(Request $request){   
+        $mgClient = Mailgun::create('key-36f2c42b42a90f1c0400451803b236c2');
+    $domain = "sandboxbf81cf3af28b418a99ea9201b180960f.mailgun.org";
         // dump($request);
         // die;
         // $request->validate([
@@ -21,13 +27,18 @@ class PageController extends Controller
         // ]);
         // // dump(1);
         // // die;
-
+        $hoten=$request->input('hoten');
+        $sdt=$request->input('sdt');
+        $email=$request->input('email');
+        $content=$request->input('content');
+        $image=$request->input('image');
         $validateData =$request->validate(
         [   'hoten'=> 'required',
             'sdt'=> 'required|min:11|numeric',
             'email'=>'required|email|unique:users,email',
             'content'=>'required',
-            'image'=>'required'
+            'image'=>'required',
+            'g-recaptcha-response'=>'required'
         ],
         [
             'email.required'=>'Vui lòng nhập email',
@@ -36,20 +47,27 @@ class PageController extends Controller
             'sdt.required'=>'Vui lòng nhập sdt',
             'hoten.required'=>'Vui long nhap ho ten',
             'content.required'=>'Vui long nhap Noi Dung',
-            'image.required'=>'Vui long chon hinh anh'
+            'image.required'=>'Vui long chon hinh anh',
+           
         ]);
+        $result = $mgClient->messages()->send($domain, array(
+            'from'	=> 'ntdat.ptit@gmail.com',
+            'to'	=> $email,
+            'subject' => 'Hello',
+            'text'	=> 'Testing some Mailgun awesomness!'
+        ));
+      
             // dump($validateData);
             // die;
-        $hoten=$request->input('hoten');
-        $sdt=$request->input('sdt');
-        $email=$request->input('email');
-        $content=$request->input('content');
-        $image=$request->input('image');
+            $token=$request->input('g-recaptcha-response');
+           
+    
+    
         $data=array('hoten'=>$hoten,'sdt'=>$sdt,'email'=>$email,'content'=>$content,'image'=>$image);
         DB::table('test')->insert($data);
+            if($token){
         return redirect('dang-ki')->with('insert' ,'Record inserted  successfully.');  
-        $user = User::findOrFail($id);
-        Mail::to($email)->send(new GuiEmail());
+            }
         // $first_name = $request->input('first_name');
         // $last_name = $request->input('last_name');
         // $city_name = $request->input('city_name');

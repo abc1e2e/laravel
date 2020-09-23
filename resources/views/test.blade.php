@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html>
     <head>
@@ -8,7 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
         <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <!-- JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -118,36 +120,42 @@ input#submit:hover {
                         @endforeach
                     </div>
                 @endif
-                    
-                <h2>Đăng ký user</h2>
-                <div class="form">
-                    <label style="margin-left: -280px;">Họ và tên</label>
-                    <input type="text" name="hoten" required value="{{old('hoten')}}">
-                </div>
-                <div class="form">
-                    <label style="margin-left: -280px;">Email</label>
-                    <input type="email" name="email" required value="{{old('email')}}">
-                </div>
-                <div class="form">
-                    <label style="margin-left: -270px;">Số điện thoại</label>
-                    <input type="text" name="sdt" required value="{{old('sdt')}}">
-                </div>  
-                <div class="form">
-                <label style="margin-left: -280px;">Content</label>
-                    <textarea  class ="content" cols = "column" rows = "row" name = "content" id = "content" required value="{{('content')}}" >
+                    <h2>Đăng ký user</h2>
+                 <div class="form-body">
 
-                </textarea>
-                </div>
-                {{-- <input type="text" name="content" required value="{{old('hoten')}}"> --}}
-                <div class="form">
-                    <label style="margin-left: -280px;">Image</label>
-                    <input type="file" name="image" required value="{{old('image')}}">     
+                    <label>Họ và tên</label>
+                    <input type="text" name="hoten" required value="{{old('hoten')}}">
+                
+                
+                    <label>Email</label>
+                    <input type="email" name="email" required value="{{old('email')}}">
+                
+                
+                    <label style="">Số điện thoại</label>
+                    <input type="text" name="sdt" required value="{{old('sdt')}}">
+                    
+                    <div>
+                        <div>Content</div>
+                        <textarea  class ="content" cols = "column" rows = "row" name = "content" id = "content" required value="{{('content')}}" >
+
+                            </textarea>
+                    
+                        {{-- <input type="text" name="content" required value="{{old('hoten')}}"> --}}
+                    </div>
+                    <label>Image</label>
+                    <input type="file" name="image" required value="{{old('image')}}">
+                
+                    <div class="g-recaptcha" data-sitekey="6Lfxas8ZAAAAAIADzdO-gQCcE2LvSetxTrH7ZgBA
+                    "></div>
+                    
                     <input id="submit" type="submit" name="submit" value="Gửi">
                 </div>
             </form>                
         </div>
       
-       
+        <script>
+        
+        </script>
     </body>
 
 </html>
