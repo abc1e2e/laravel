@@ -20,20 +20,22 @@ body {
     border: 1px solid #80808000;
     grid-column: 6/9;
     grid-row: 3;
-    height: 500px;
-    width: 500px;
+    height: 659px;
+    width: 560px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* //align-items: center; */
     position: relative;
     border-radius: 15px;
     box-shadow: 0px 0px 14px 0px grey;
     background-color: white;
+    margin-left: -85px;
 }
 
 h2 {
     margin-top: 50px;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 i.fab.fa-app-store-ios {
@@ -89,4 +91,11 @@ input#submit:hover {
 .content {
     width: 70%;
     border: solid 2px #00BCD4;
+    height: 89px;
+}
+
+.form-body {
+    width: 422px;
+    margin-left: 117px;
+    margin-top: 41px;
 }

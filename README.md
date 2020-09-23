@@ -7,9 +7,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+<!-- ## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
@@ -58,4 +57,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
+## Content
+- Laravel Framework  version 7.28.3
+- Server Requirements: xamp(localhost) MYSQL
+link download: https://www.apachefriends.org/index.html 
+
+- Download composer link: https://getcomposer.org/download/
+
+- Step 1: git clone https://github.com/abc1e2e/laravel.git  đưa thư  mục htdocs xamppp
+- Step 2: run run command line
+- Step 3:  file .env kết nối DB 
+- Step 4: chạy xampp khi cài đặt xong Start Apache and MYSQL
+- Step 5: chạy url http://localhost/Test/public/dang-ki
+- Step 6: Url admin http://localhost/Test/public/list-user
