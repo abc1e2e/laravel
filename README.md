@@ -61,7 +61,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Content
 Server Requirements: xamp(localhost) MYSQL
 link download: https://www.apachefriends.org/index.html      
-- Step 1: git clone https://github.com/abc1e2e/laravel.git 
+- Step 1: git clone https://github.com/abc1e2e/laravel.git  đưa thư  mục htdocs xamppp
 - Step 2: tạo file .env kết nối DB 
 - Step 3: chạy xampp khi cài đặt xong Start Apache and MYSQL
 - Step 4: chạy url http://localhost/Test/public/dang-ki
