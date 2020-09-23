@@ -60,6 +60,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
 ## Content
 - Laravel Framework  version 7.28.3
+- Xampp version 3.2.4
 - Server Requirements: xamp(localhost) MYSQL
 link download: https://www.apachefriends.org/index.html 
 
