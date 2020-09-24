@@ -72,4 +72,4 @@ link download: https://www.apachefriends.org/index.html
 - Step 4:  file .env kết nối DB 
 - Step 5: chạy xampp khi cài đặt xong Start Apache and MYSQL
 - Step 6: chạy url http://localhost/laravel/public/dang-ki
-- Step 7: Url admin http://localhost/laravel/public/list-user
+- Step 7: chay log-in admin url http://localhost/laravel/public/log-in sẽ chuyển qua trang quản lý 
