@@ -17,8 +17,19 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
 <body>
+ 
     <div id="wrapper">
+        <div class="pull-right auto-width-right" style="text-align: right; margin-right: 200px;">
+            <ul class="top-details menu-beta l-inline">
+            @if(Auth::check())
+               
+                <h3>Chào bạn :{{Auth::user()->name}}</h3></li>
+               <a href="{{route('log-out')}}">Đăng xuất</a></li>
+        
+            @endif
 
+            </ul>
+        </div>
         <!-- Navigation -->
        
 
@@ -44,7 +55,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                             <?php foreach ($user as $key): ?>
+                             <?php foreach ($customer ?? '' as $key): ?>
                             <tr class="odd gradeX" align="center">
                                 <td>{{$key->hoten}}</td>
                                 <td>{{$key->email}}</td>

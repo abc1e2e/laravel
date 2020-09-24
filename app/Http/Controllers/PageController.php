@@ -7,6 +7,9 @@ require '../vendor/autoload.php';
 use Mailgun\Mailgun;
 use DB;
 use Validator;
+use Auth;   
+use Session;
+use App\User;
 
 class PageController extends Controller
 {   
@@ -15,6 +18,29 @@ class PageController extends Controller
     public function insertform()
     {
         return view('test');
+    }
+    public function getLogIn(){
+        return view('admin.form_login');
+    }
+    public function postLogIn(Request $req){
+        
+       
+
+        $credentials = array('email'=>$req->email,'password'=>$req->password);
+        // dump(Auth::user());die;
+        // // dump(Auth::attempt($credentials));die;
+        // dump(Auth::attempt($credentials));die;
+        if(Auth::attempt($credentials)){
+            return redirect('list-user');   
+        }    else{
+        //     // Session::flash('error', 'Email hoặc mật khẩu không đúng!');
+        //     // return redirect('lo');
+             return redirect()->back()->with(['flag'=>'danger','message'=>'Email hoặc mật khẩu không đúng']);
+        }
+    }
+    public function postLogout(){
+        Auth::logout();
+        return redirect()->route('log-in');
     }
     public function insert(Request $request){   
         $mgClient = Mailgun::create('key-36f2c42b42a90f1c0400451803b236c2');

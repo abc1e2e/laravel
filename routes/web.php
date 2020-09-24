@@ -57,6 +57,18 @@ Route::post('update-user/{id}',[
 	'as'=>"update-user",
 	'uses'=>'AdminController@updatepostUser'
 ]);
+Route::get('log-in',[
+	'as'=>"log-in",
+	'uses'=>'PageController@getLogIn'
+]);
+Route::post('log-in',[
+	'as'=>"log-in",
+	'uses'=>'PageController@postLogIn'
+]);
+Route::get('log-out',[
+	'as'=>'log-out',
+	'uses'=>'PageController@postLogout'
+]);
 // Route for insert data
 // Route::get('insert','PageController@insertform');
 // Route::post('create','PageController@insert');
@@ -79,3 +91,27 @@ Route::post('update-user/{id}',[
 // Route::get('delete-records','StudDeleteController@index');
 // Route::get('delete/{id}','StudDeleteController@destroy');
 	
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
