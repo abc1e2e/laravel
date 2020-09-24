@@ -33,30 +33,30 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                    <form action="{{route('update-user',$user ?? ''->id)}}" method="POST">
+                    <form action="{{route('update-user',$customer ?? ''->id)}}" method="POST">
                                 
                      <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                             <div class="form-group">
                                 <label>Hoten</label>
-                                <input  type="text" class="form-control" name="hoten"  placeholder="Nhap ho ten" required value="{{$user->hoten}}"/>
+                                <input  type="text" class="form-control" name="hoten"  placeholder="Nhap ho ten" required value="{{$customer->hoten}}"/>
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" class="form-control" name="email" placeholder="Nhap Email" required value="{{$user->email}}"/>
+                                <input type="email" class="form-control" name="email" placeholder="Nhap Email" required value="{{$customer->email}}"/>
                             </div>
                             <div class="form-group">
                                 <label>SDT</label>
-                                <input type="text" class="form-control" name="sdt" placeholder="Nhap SDT" required value="{{$user->sdt}}"/>
+                                <input type="text" class="form-control" name="sdt" placeholder="Nhap SDT" required value="{{$customer->sdt}}"/>
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
                                 <textarea  class ="content"   name = "content" id = "content" required   style="width: 100%;">
-                                    {{$user->content}}
+                                    {{$customer->content}}
                                 </textarea>
                             </div>
                             <div class="form-group">
                                 <label>Image</label>
-                                <input type="file" class="form-control" name="image" placeholder="Please Enter hinh anh" required value="{{$user->image}}" />
+                                <input type="file" class="form-control" name="image" placeholder="Please Enter hinh anh" required value="{{$customer->image}}" />
                             </div>
                             <button type="submit" class="btn btn-primary">User Edit</button>
                         <a href="{{route('listuser')}}">ve trang list</a>
