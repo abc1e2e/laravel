@@ -28,12 +28,12 @@ Route::get('/', function () {
 // 		'as'=>'insert',
 // 		'uses'=>'PageController@postInsert'
 // 	]);
-Route::get('dang-ki',[
+Route::get('thong-tin-kh',[
 	'as'=>'insert',
 	'uses'=>'PageController@insertform'
 ]);
 
-Route::post('dang-ki',[
+Route::post('thong-tin-kh',[
 	'as'=>'insert',
 	'uses'=>'PageController@insert'
 ]);

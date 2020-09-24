@@ -92,7 +92,7 @@ class PageController extends Controller
         $data=array('hoten'=>$hoten,'sdt'=>$sdt,'email'=>$email,'content'=>$content,'image'=>$image);
         DB::table('test')->insert($data);
             if($token){
-        return redirect('dang-ki')->with('insert' ,'Record inserted  successfully.');  
+        return redirect('thong-tin-kh')->with('insert' ,'Record inserted  successfully.');  
             }
         // $first_name = $request->input('first_name');
         // $last_name = $request->input('last_name');
