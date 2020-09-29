@@ -96,18 +96,30 @@ input#submit:hover {
         </style>
     </head>
     <body>
+        
         @if(Session::has('insert'))
-        <div class="alert-success text-center" id="res_message">
+        <div class="alert-success text-center">
             {{ Session::get('insert') }}
         </div>
     @endif
+    
         <script>
         
         </script>
         
         <div class="to">
-            <form class="form" action="{{route('insert')}}" method="POST">
-            
+            <form class="form"  enctype="multipart/form-data" action="{{route('insert')}}" method="POST">
+
+              @if(Session::has('insert1'))
+                    <div class="alert alert-danger">
+                        {{ Session::get('insert1') }}
+                    </div>
+                 @endif
+                 @if(Session::has('sodienthoai'))
+                 <div class="alert alert-danger">
+                     {{ Session::get('sodienthoai') }}
+                 </div>
+              @endif
                 <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
                 @if(count($errors)>0)
                     <div class="alert alert-danger">
@@ -132,14 +144,12 @@ input#submit:hover {
                     
                     <div>
                         <div>Content</div>
-                        <textarea  class ="content" cols = "column" rows = "row" name = "content" id = "content" required value="{{('content')}}" >
-
-                            </textarea>
+                        <textarea  class ="content" cols = "column" rows = "row" name = "content" id = "content" require>{{old('content')}} </textarea> 
                     
                         {{-- <input type="text" name="content" required value="{{old('hoten')}}"> --}}
                     </div>
                     <label>Image</label>
-                    <input type="file" name="image" required value="{{old('image')}}">
+                    <input type="file" name="fileToUpload"  required value="{{old('image')}}">
                 
                     <div class="g-recaptcha" data-sitekey="6Lfxas8ZAAAAAIADzdO-gQCcE2LvSetxTrH7ZgBA
                     "></div>
@@ -148,7 +158,9 @@ input#submit:hover {
                 </div>
             </form>                
         </div>
-      
+        <div>
+            
+        </div>
         <script>
         
         </script>

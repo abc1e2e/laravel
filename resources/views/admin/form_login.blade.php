@@ -24,7 +24,11 @@
       
         <div class="card">
         <article class="card-body">
-        
+            @if(Session::has('user'))
+            <div class="alert alert-danger">
+                {{ Session::get('user') }}
+            </div>
+         @endif
         <h4 class="card-title mb-4 mt-1">Sign in Admin</h4>
         <form action="{{route('log-in')}}" method="POST">   
             <input type="hidden" name="_token" value="{{csrf_token()}}">

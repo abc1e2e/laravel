@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400i|Noto+Sans:400,400i,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
     <!-- CSS only -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -17,7 +18,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </head>
 <body>
- 
+   
     <div id="wrapper">
         <div class="pull-right auto-width-right" style="text-align: right; margin-right: 200px;">
             <ul class="top-details menu-beta l-inline">
@@ -32,7 +33,7 @@
         </div>
         <!-- Navigation -->
        
-
+            
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -65,8 +66,8 @@
                                 <img src="asset/images/{{$key->image}}" style="width: 150px;height: 150px">
                                 </td>
                                {{-- <td><a href='updateUser/{{ $key->id }}'>Update</a>  --}}
-                                <td><a href="{{route('update-user',$key->id)}}">Update</a>||
-                               <a href="{{route('delete-user',$key->id)}}">Delete</a></td> 
+                                <td><a href="{{route('update-user',$key->id)}}"><i class="fa fa-edit">Edit</a>||
+                               <a href="{{route('delete-user',$key->id)}}" onclick="return confirm('Are you sure?')" id="delete"><i class="fa fa-trash">Delete</a></td> 
                             </tr>
                              <?php endforeach ?>
                         </tbody>
@@ -79,6 +80,9 @@
         <!-- /#page-wrapper -->
 
     </div>
+    <script>
+       
+    </script>
     <!-- /#wrapper -->
 </body>
 </html>
