@@ -33,9 +33,27 @@
                     </div>
                     <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
-                    <form action="{{route('update-user',$customer ?? ''->id)}}" method="POST">
+                    <form  enctype="multipart/form-data" action="{{route('update-user',$customer ?? ''->id)}}" method="POST">
                                 
+                     
                      <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+                     @if(count($errors)>0)
+                         <div class="alert alert-danger">
+                             @foreach($errors->all() as $err)
+                             {{$err}}
+                             @endforeach
+                         </div>
+                     @endif
+                     @if(Session::has('edit'))
+                     <div class="alert alert-danger">
+                         {{ Session::get('edit') }}
+                     </div>
+                      @endif
+                         @if(Session::has('phone'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('phone') }}
+                        </div>
+                        @endif
                             <div class="form-group">
                                 <label>Hoten</label>
                                 <input  type="text" class="form-control" name="hoten"  placeholder="Nhap ho ten" required value="{{$customer->hoten}}"/>
@@ -50,11 +68,12 @@
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
-                                <textarea  class ="content"   name = "content" id = "content" required   style="width: 100%;">
-                                    {{$customer->content}}
-                                </textarea>
+                                <textarea  class ="content"   name = "content" id = "content" required   style="width: 100%;"> {{$customer->content}}</textarea>
                             </div>
+                            
+                        <img src="{{URL::to('/')}}/asset/images/{{$customer->image}}" style="width: 150px;height: 150px">
                             <div class="form-group">
+                                
                                 <label>Image</label>
                                 <input type="file" class="form-control" name="image" placeholder="Please Enter hinh anh" required value="{{$customer->image}}" />
                             </div>

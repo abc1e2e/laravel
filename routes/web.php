@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\Checklogin;
 use App\User;
 /*
 |--------------------------------------------------------------------------
@@ -37,22 +38,23 @@ Route::post('thong-tin-kh',[
 	'as'=>'insert',
 	'uses'=>'PageController@insert'
 ]);
+
 Route::get('list-user',[
 	'as'=>'listuser',
 	'uses'=>'AdminController@listUser'
-]);
+])->middleware('Checklogin');
 Route::post('list-user',[
 	'as'=>'listuser',
 	'uses'=>'AdminController@listUser'
-]);
+])->middleware('Checklogin');
 Route::get('delete-user/{id}',[
 	'as'=>"delete-user",
 	'uses'=>'AdminController@deleteUser'
-]);
+])->middleware('Checklogin');
 Route::get('update-user/{id}',[
 	'as'=>"update-user",
 	'uses'=>'AdminController@updateUser'
-]);
+])->middleware('Checklogin');
 Route::post('update-user/{id}',[
 	'as'=>"update-user",
 	'uses'=>'AdminController@updatepostUser'
@@ -69,6 +71,7 @@ Route::get('log-out',[
 	'as'=>'log-out',
 	'uses'=>'PageController@postLogout'
 ]);
+
 // Route for insert data
 // Route::get('insert','PageController@insertform');
 // Route::post('create','PageController@insert');
