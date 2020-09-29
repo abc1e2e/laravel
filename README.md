@@ -70,7 +70,8 @@ link download: https://www.apachefriends.org/index.html
 - Step 2: run cmd composer require facebook/graph-sdk
 - Step 3: Tạo database users and run:
 ----- php artisan make:migration create_users_table -----
-php artisan migrate;  sau đó
+php artisan migrate;  
+Xem thêm https://laravel.com/docs/8.x/migrations      ----------sau đó
 chạy file test.sql trên database 
 - Step 4:  file .env kết nối DB 
 - Step 5: chạy xampp khi cài đặt xong Start Apache and MYSQL
