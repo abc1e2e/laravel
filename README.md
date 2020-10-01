@@ -69,7 +69,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - Step 2: run cmd  ::  composer update --ignore-platform-reqs
 - Step 3: run cmd :  php artisan key:generate
 - Step 4:  Tạo database users _____Cấu hình Database ở .env 
-- Step 5: Tạo database  run:
+- Step 5: Tạo table  run:
 php artisan migrate;  
 Xem thêm https://laravel.com/docs/8.x/migrations 
 - Step 6: Chạy localhost: ....../public/thong-tin-kh (Lưu thông tin khách hàng)
