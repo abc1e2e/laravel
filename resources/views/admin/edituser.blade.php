@@ -15,6 +15,20 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<style>
+    a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.form-control{
+    width: 100%;
+}
+
+</style>
 </head>
 <body>
     <div id="wrapper">
@@ -26,12 +40,14 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" >
                         <h1 class="page-header">User
                             <small>Edit</small>
                         </h1>
                     </div>
                     <!-- /.col-lg-12 -->
+
+                    
                     <div class="col-lg-7" style="padding-bottom:120px">
                     <form  enctype="multipart/form-data" action="{{route('update-user',$customer ?? ''->id)}}" method="POST">
                                 
@@ -70,16 +86,19 @@
                                 <label>Content</label>
                                 <textarea  class ="content"   name = "content" id = "content" required   style="width: 100%;"> {{$customer->content}}</textarea>
                             </div>
-                            
+                            <div class="form-group" style="padding-left: 200px;"> 
                         <img src="{{URL::to('/')}}/asset/images/{{$customer->image}}" style="width: 150px;height: 150px">
-                            <div class="form-group">
+                            </div>
+                            <div class="form-group" >
                                 
                                 <label>Image</label>
                                 <input type="file" class="form-control" name="image" placeholder="Please Enter hinh anh" required value="{{$customer->image}}" />
                             </div>
-                            <button type="submit" class="btn btn-primary">User Edit</button>
-                        <a href="{{route('listuser')}}">ve trang list</a>
-
+                            <div >
+                            <button type="submit" class="btn btn-primary" style="height: 52px;
+                            width: 100px;">User Edit</button>
+                        <a href="{{route('listuser')}}">ComeBack</a>
+                            </div>
                         <form>
                     </div>
                 </div>

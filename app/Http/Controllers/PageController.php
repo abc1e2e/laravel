@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\MailController;
 use Illuminate\Http\Request;
-require '../vendor/autoload.php';
-use Mailgun\Mailgun;
+use Illuminate\Http\Response;
+
 use App\Mail\GuiEmail;
 use DB;
 use Mail;
 use Validator;
 use Auth;   
 use Session;
-
+use Hash;
 use App\User;
 
 class PageController extends Controller
@@ -25,6 +25,24 @@ class PageController extends Controller
     }
     public function getLogIn(){
         return view('admin.form_login');
+    }
+    public function getRegister(){
+        return view('admin.form_register');
+    }
+    public function postRegister(Request $req){
+        
+        $validateData =$req->validate(
+            [  'name'=>'required',
+                'email'=>'required|email|unique:users,email',
+                'password'=>'required|min:6|max:255'
+            ]);
+            $user = new User();
+            $user->name = $req->name;
+            $user->email = $req->email;
+            $user->password = Hash::make($req->password);
+          
+            $user->save();
+            return redirect()->back()->with('thanhcong','Tạo tài khoản thành công');
     }
     public static function emailValid($string) 
     { 
@@ -52,6 +70,7 @@ class PageController extends Controller
         return redirect()->route('log-in');
     }
     public function insert(Request $request){   
+      
         $email=$request->input('email');
      $data=[
          'title'=>'Hello',
