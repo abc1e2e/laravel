@@ -73,6 +73,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 php artisan migrate;  
 Xem thêm https://laravel.com/docs/8.x/migrations 
 - Step 6: Chạy localhost: ....../public/thong-tin-kh (Lưu thông tin khách hàng)
-- Step 7: Quản Lý Admin ......./public/log-in (Chưa có tài khoản thì tạo tài khoản click Regiter hoặc........./public/register12)    
+- Step 7: Quản Lý Admin ......./public/log-in (Chưa có tài khoản thì tạo tài khoản click Register hoặc........./public/register12)    
 
 
