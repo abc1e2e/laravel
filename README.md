@@ -60,19 +60,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
 ## Content
 - Laravel Framework  version 7.28.3
-- Xampp version 3.2.4
+- MYSQL version 10.4.14-MariaDB
 - Server Requirements: xamp(localhost) MYSQL
 link download: https://www.apachefriends.org/index.html 
 
 - Download composer link: https://getcomposer.org/download/
 
-- Step 1: git clone https://github.com/abc1e2e/laravel.git  đưa thư  mục htdocs xamppp
-- Step 2: run cmd composer require facebook/graph-sdk
-- Step 3: Tạo database users and run:
------ php artisan make:migration create_users_table -----
+- Step 1: git clone https://github.com/abc1e2e/laravel.git  
+- Step 2: run cmd  ::composer global require laravel/installer
+- Step 3: run cmd :  php artisan key:generate
+- Step 4:  Tạo database users _____Cấu hình Database ở .env 
+- Step 5: Tạo database users and run:
 php artisan migrate;  
-Xem thêm https://laravel.com/docs/8.x/migrations      ----------sau đó
-chạy file test.sql trên database 
+Xem thêm https://laravel.com/docs/8.x/migrations      
+
 - Step 4:  file .env kết nối DB 
 - Step 5: chạy xampp khi cài đặt xong Start Apache and MYSQL
 - Step 6: chạy url http://localhost/laravel/public/thong-tin-kh

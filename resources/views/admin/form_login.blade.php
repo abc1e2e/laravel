@@ -47,6 +47,7 @@
           
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+            <a href="{{route('register12')}}">Register</a>
             </div> <!-- form-group// -->                                                           
         </form>
         </article>

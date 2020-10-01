@@ -71,6 +71,15 @@ Route::get('log-out',[
 	'as'=>'log-out',
 	'uses'=>'PageController@postLogout'
 ]);
+Route::get('register12',[
+	'as'=>'register12',
+	'uses'=>'PageController@getRegister'
+]);
+Route::post('register12',[
+	'as'=>'register12',
+	'uses'=>'PageController@postRegister'
+]);
+
 
 // Route for insert data
 // Route::get('insert','PageController@insertform');
@@ -95,25 +104,27 @@ Route::get('log-out',[
 // Route::get('delete/{id}','StudDeleteController@destroy');
 	
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
