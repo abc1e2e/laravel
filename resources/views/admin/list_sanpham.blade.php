@@ -107,6 +107,7 @@
                                 -----------<a href="{{route('add-sanpham')}}">Thêm Sản Phẩm</a>
                             </li>
                         </ul>
+                        <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fas fa-shopping-cart"></i>Quản lí đơn hàng<span class="fa arrow"></span></a>
@@ -120,10 +121,8 @@
                                  <li>
                                     <a href="{{route('orderfinish')}}">Đơn hàng đã hoàn thành</a>
                                 </li> --}}
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            </ul> 
                         </li>
-                        <!-- /.nav-second-level -->
                     </li>
                 </ul>
             </div>
@@ -151,27 +150,26 @@
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
-                                <th>Hoten</th>
-                                <th>Email</th>
-                                <th>Số điện thoại</th>
-                                <th>Content</th>
+                                <th>Ten</th>
+                                <th>Giothieu</th>
+                                <th>GiaTien</th>
+                                <th>SoLuong</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                             <?php foreach ($customer ?? '' as $key): ?>
+                             <?php foreach ($sanpham ?? '' as $key): ?>
                             <tr class="odd gradeX" align="center">
-                                <td>{{$key->hoten}}</td>
-                                <td>{{$key->email}}</td>
-                                <td>{{$key->sdt}}</td>
-                            <td>{{$key->content}}</td>
+                                <td>{{$key->name}}</td>
+                                <td>{{$key->noidung}}</td>
+                                <td>{{$key->giatien}}</td>
+                            <td>{{$key->soluong}}</td>
                                 <td>
                                 <img src="asset/images/{{$key->image}}" style="width: 150px;height: 150px">
                                 </td>
-                               {{-- <td><a href='updateUser/{{ $key->id }}'>Update</a>  --}}
-                                <td><a href="{{route('update-user',$key->id)}}"><i class="fa fa-edit">Edit</a>||
-                               <a href="{{route('delete-user',$key->id)}}" onclick="return confirm('Are you sure?')" id="delete"><i class="fa fa-trash">Delete</a></td> 
+                                <td><a href="{{route('update-sanpham',$key->id)}}"><i class="fa fa-edit">Edit</a>||
+                                    <a href="{{route('delete-sanpham',$key->id)}}" onclick="return confirm('Are you sure?')" id="delete"><i class="fa fa-trash">Delete</a></td> 
                             </tr>
                              <?php endforeach ?>
                         </tbody>

@@ -97,7 +97,7 @@
                             <div >
                             <button type="submit" class="btn btn-primary" style="height: 52px;
                             width: 100px;">User Edit</button>
-                        <a href="{{route('listuser')}}">ComeBack</a>
+                        <a href="{{route('list-user')}}">ComeBack</a>
                             </div>
                         <form>
                     </div>

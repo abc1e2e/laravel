@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 <!-- JS, Popper.js, and jQuery -->
+
+
+<!-- JS, Popper.js, and jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
@@ -38,8 +41,6 @@
             </ul>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-2"> 
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0 ; display: block;">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -85,28 +86,29 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> KhachHang<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                        
+                         <li>
+                                <a href="#"><i class="fa fa-users fa-fw"></i> KhachHang<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        -----------<a href="{{route('list-kh')}}">Thong Tin KhachHang Dat Hang</a>
+                                    </li>
+                                    {{-- <li>
+                                        <a href="{{route('listcustomer')}}">List Customer</a>
+                                    </li> --}}
+                                </ul>
+                                <!-- /.nav-second-level -->
+                         </li>
+                         <li>
+                            <a href=""><i class="fa fa-cube fa-fw"></i> Quản Lí Sản Phẩm<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level" style="display: block;">
                                 <li>
-                                    -----------<a href="{{route('list-kh')}}">Thong Tin KhachHang Dat Hang</a>
+                                    -----------<a href="{{route('list-sanpham')}}">Danh Sách Sản Phẩm</a>
                                 </li>
-                                {{-- <li>
-                                    <a href="{{route('listcustomer')}}">List Customer</a>
-                                </li> --}}
+                                <li>
+                                    -----------<a href="{{route('add-sanpham')}}">Thêm Sản Phẩm</a>
+                                </li>
                             </ul>
-                            <!-- /.nav-second-level -->
-                     </li>
-                        <li>
-                        <a href=""><i class="fa fa-cube fa-fw"></i> Quản Lí Sản Phẩm<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                -----------<a href="{{route('list-sanpham')}}">Danh Sách Sản Phẩm</a>
-                            </li>
-                            <li>
-                                -----------<a href="{{route('add-sanpham')}}">Thêm Sản Phẩm</a>
-                            </li>
-                        </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fas fa-shopping-cart"></i>Quản lí đơn hàng<span class="fa arrow"></span></a>
@@ -123,6 +125,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                       
                         <!-- /.nav-second-level -->
                     </li>
                 </ul>
@@ -136,54 +139,6 @@
      
 
     </nav>
-    </div>
-       <div class="col-md-10">
-        <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12" style="text-align: center;">
-                        <h1 class="page-header" >User
-                            <small>List</small>
-                        </h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                        <thead>
-                            <tr align="center">
-                                <th>Hoten</th>
-                                <th>Email</th>
-                                <th>Số điện thoại</th>
-                                <th>Content</th>
-                                <th>Image</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                             <?php foreach ($customer ?? '' as $key): ?>
-                            <tr class="odd gradeX" align="center">
-                                <td>{{$key->hoten}}</td>
-                                <td>{{$key->email}}</td>
-                                <td>{{$key->sdt}}</td>
-                            <td>{{$key->content}}</td>
-                                <td>
-                                <img src="asset/images/{{$key->image}}" style="width: 150px;height: 150px">
-                                </td>
-                               {{-- <td><a href='updateUser/{{ $key->id }}'>Update</a>  --}}
-                                <td><a href="{{route('update-user',$key->id)}}"><i class="fa fa-edit">Edit</a>||
-                               <a href="{{route('delete-user',$key->id)}}" onclick="return confirm('Are you sure?')" id="delete"><i class="fa fa-trash">Delete</a></td> 
-                            </tr>
-                             <?php endforeach ?>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
-       </div>
-    </div>
     <!-- DataTables CSS -->
 
 

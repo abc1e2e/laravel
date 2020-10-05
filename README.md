@@ -72,7 +72,15 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - Step 5: Tạo table  run:
 php artisan migrate;  
 Xem thêm https://laravel.com/docs/8.x/migrations 
-- Step 6: Chạy localhost: ....../public/thong-tin-kh (Lưu thông tin khách hàng)
-- Step 7: Quản Lý Admin ......./public/log-in (Chưa có tài khoản thì tạo tài khoản click Register hoặc........./public/register12)    
+- Step 6: Chạy localhost: ....../public/thong-tin-kh (Lưu thông tin khách hàng) -Đây là bài trước
 
+- Step 7: Trang San Pham   show mặt hàng :....../public/trang-chu (Add sản phẩm giỏ hàng and đặt hàng)
+- Step 8 : Khi có hàng muốn đặt hàng click Đặt Hàng trong giỏ hàng chuyển sang
+....../public/dat-hang   (Và khách hàng muốn đặt hàng đi đâu)
+- Step 9: Quản Lý Admin ......./public/log-in (Chưa có tài khoản thì tạo tài khoản click Register hoặc........./public/register12)  
+    - Quan Ly Khach Hàng (Lưu những thông tin khách hàng muốn đặt hàng)
+    - Quản Lý Đặt Hàng(Lưu Lại những sản phẩm , số lượng, thành tiền bao nhiêu)
+    - Quản Lý Sản Phẩm (Quản lý sản phẩm mặt hàng mình bán thêm xóa sửa các sản phẩm)
+    
+        
 
