@@ -38,13 +38,48 @@ Route::post('thong-tin-kh',[
 	'as'=>'insert',
 	'uses'=>'PageController@insert'
 ]);
-
+Route::get('show-user',[
+	'as'=>'show-user',
+	'uses'=>'PageController@show'
+])->middleware('Checklogin');
+Route::get('trang-chu',[
+	'as'=>'trang-chu',
+	'uses'=>'PageController@getTrangChu'
+]);
+Route::get('add-sanpham',[
+	'as'=>'add-sanpham',
+	'uses'=>'AdminController@getAddSanPham'
+])->middleware('Checklogin');
+Route::post('add-sanpham',[
+	'as'=>'add-sanpham',
+	'uses'=>'AdminController@postAddSanPham'
+])->middleware('Checklogin');
+Route::get('list-sanpham',[
+	'as'=>'list-sanpham',
+	'uses'=>'AdminController@getListSanPham'
+])->middleware('Checklogin');
+// Route::post('list-sanpham',[
+// 	'as'=>'list-sanpham',
+// 	'uses'=>'AdminController@postListSanPham'
+// ])->middleware('Checklogin');
+Route::get('delete-sanpham/{id}',[
+	'as'=>"delete-sanpham",
+	'uses'=>'AdminController@deleteSanPham'
+])->middleware('Checklogin');
+Route::get('update-sanpham/{id}',[
+	'as'=>"update-sanpham",
+	'uses'=>'AdminController@updateSanPham'
+])->middleware('Checklogin');
+Route::post('update-sanpham/{id}',[
+	'as'=>"update-sanpham",
+	'uses'=>'AdminController@updatepostSanPham'
+])->middleware('Checklogin');
 Route::get('list-user',[
-	'as'=>'listuser',
+	'as'=>'list-user',
 	'uses'=>'AdminController@listUser'
 ])->middleware('Checklogin');
 Route::post('list-user',[
-	'as'=>'listuser',
+	'as'=>'list-user',
 	'uses'=>'AdminController@listUser'
 ])->middleware('Checklogin');
 Route::get('delete-user/{id}',[
@@ -79,6 +114,48 @@ Route::post('register12',[
 	'as'=>'register12',
 	'uses'=>'PageController@postRegister'
 ]);
+Route::get('add-to-cart/{id}',[
+	'as'=>'themgiohang',
+	'uses'=>'PageController@getAddtoCart'
+]);
+
+Route::get('del-cart/{id}',[
+	'as'=>'xoagiohang',
+	'uses'=>'PageController@getDelItemCart'
+]);
+Route::get('dat-hang',[
+	'as'=>'dat-hang',
+	'uses'=>'PageController@getCheckout'
+]);
+
+Route::post('dat-hang',[
+	'as'=>'dat-hang',
+	'uses'=>'PageController@postCheckout'
+]);
+Route::get('dat-hang/capnhatso',[
+	'as'=>'dat-hang/capnhatso',
+	'uses'=>'PageController@addQty'
+]);
+Route::get('list-order',[
+	'as'=>"list-order",
+	'uses'=>'AdminController@listOrder'
+])->middleware('Checklogin');
+Route::get('confirm-order/{id}',[
+	'as'=>"confirm-order",
+	'uses'=>'AdminController@confirmOrder'
+])->middleware('Checklogin');
+Route::get('delete-order/{id}',[
+	'as'=>"delete-order",
+	'uses'=>'AdminController@deleteOrder'
+])->middleware('Checklogin');
+Route::get('detail-order/{id}',[
+	'as'=>'detail-order',
+	'uses'=>'AdminController@orderDetail'
+])->middleware('checkLoginAdmin');
+Route::get('list-kh',[
+	'as'=>"list-kh",
+	'uses'=>'AdminController@listKH'
+])->middleware('Checklogin');
 
 
 // Route for insert data

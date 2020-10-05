@@ -143,7 +143,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12" style="text-align: center;">
-                        <h1 class="page-header" >User
+                        <h1 class="page-header" >Khach Hang
                             <small>List</small>
                         </h1>
                     </div>
@@ -153,25 +153,26 @@
                             <tr align="center">
                                 <th>Hoten</th>
                                 <th>Email</th>
-                                <th>Số điện thoại</th>
-                                <th>Content</th>
-                                <th>Image</th>
-                                <th>Action</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Note</th>
+                               
                             </tr>
                         </thead>
                         <tbody>
-                             <?php foreach ($customer ?? '' as $key): ?>
+                             <?php foreach ($kh ?? '' as $key): ?>
                             <tr class="odd gradeX" align="center">
-                                <td>{{$key->hoten}}</td>
+                                <td>{{$key->name}}</td>
                                 <td>{{$key->email}}</td>
-                                <td>{{$key->sdt}}</td>
-                            <td>{{$key->content}}</td>
-                                <td>
+                                <td>{{$key->address}}</td>
+                                <td>{{$key->phone}}</td>
+                                <td>{{$key->note}}</td>
+                                {{-- <td>
                                 <img src="asset/images/{{$key->image}}" style="width: 150px;height: 150px">
-                                </td>
+                                </td> --}}
                                {{-- <td><a href='updateUser/{{ $key->id }}'>Update</a>  --}}
-                                <td><a href="{{route('update-user',$key->id)}}"><i class="fa fa-edit">Edit</a>||
-                               <a href="{{route('delete-user',$key->id)}}" onclick="return confirm('Are you sure?')" id="delete"><i class="fa fa-trash">Delete</a></td> 
+                                {{-- <td><a href="{{route('update-user',$key->id)}}"><i class="fa fa-edit">Edit</a>||
+                               <a href="{{route('delete-user',$key->id)}}" onclick="return confirm('Are you sure?')" id="delete"><i class="fa fa-trash">Delete</a></td>  --}}
                             </tr>
                              <?php endforeach ?>
                         </tbody>

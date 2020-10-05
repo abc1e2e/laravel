@@ -14,6 +14,11 @@ use Auth;
 use Session;
 use Hash;
 use App\User;
+use App\Cart;
+use App\SanPham;
+use App\KhachHang;
+use App\DatHang;
+use App\ChiTietDatHang;
 
 class PageController extends Controller
 {   
@@ -26,6 +31,90 @@ class PageController extends Controller
     public function getLogIn(){
         return view('admin.form_login');
     }
+    public function getCheckout(){
+        // if(Auth::check()){
+        //     $id=Auth::user()->id;
+        //     $userr=User::where('id',$id)->first();
+            return view('dat_hang');
+    // }
+    // else
+    // {
+    //     return view('page.dangnhap');
+    // }
+    }
+  
+        
+    public function postCheckout(Request $req){
+        $cart = Session::get('cart');
+         
+          foreach ($cart->items as $key => $value){
+
+            $product = SanPham :: find($key);
+             // dd($product->amount);
+            if($value['qty'] > $product->soluong){
+                return redirect()->back()->with('thongbao','Số lượng bánh vượt quá số lượng trong kho');
+            }
+          }
+         
+        //   if(Auth::check()){
+            $customer= KhachHang::where('email',$req->email);
+            //dump($customer);die;
+            // if($cus!=null)
+            // {
+            // $cus->name = $req->name;
+            // $cus->gender = $req->gender;
+            // $cus->address = $req->address;
+            // $cus->phone_number = $req->phone;
+            // $cus->note = $req->notes;
+            // $cus->save();
+            // }
+            // else
+            // {
+            $customer = new KhachHang;
+            // $customer->id_user=Auth::user()->id;
+            $customer->name = $req->name;
+            $customer->email = $req->email;
+            $customer->address = $req->address;
+            $customer->phone = $req->phone;
+            $customer->note = $req->notes;
+           
+            $customer->save();
+            // }
+            
+            $bill = new DatHang;
+
+            $bill->id_khachhang = $customer->id;
+            $bill->date = date('Y-m-d');
+            $bill->total = $cart->totalPrice;
+            $bill->note = $req->notes;
+            // $bill->status = 0;
+            // $bill->id_employee  = 0; 
+            // $bill->id_shipper = 0;
+            $bill->save();
+           
+            foreach ($cart->items as $key => $value) {
+
+                $product=SanPham::find($key);
+                $product->soluong=$product->soluong - $value['qty'];
+                $product->save();
+                $bill_detail = new ChiTietDatHang;
+                $bill_detail->id_dathang = $bill->id;
+                $bill_detail->id_sanpham = $key;
+                $bill_detail->quantity = $value['qty'];
+                $bill_detail->price = ($value['price']);
+                $bill_detail->save();
+            }
+           
+            Session::forget('cart');
+            return redirect()->back()->with('thongbao','Đặt hàng thành công');
+        //}
+        // else
+        // {
+        //    return view('page.dangnhap');
+        //}
+}
+    
+
     public function getRegister(){
         return view('admin.form_register');
     }
@@ -49,21 +138,89 @@ class PageController extends Controller
         if (preg_match ("/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+\.[A-Za-z]{2,6}$/", $string)) 
             return true; 
     } 
+    public function show()
+    { 
+        return view('admin.show_user');
+    }
+    public function getTrangChu()
+    { 
+        $sanpham=SanPham::all();
+        
+        return view('trang_chu',compact('sanpham'));
+    }
     public function postLogIn(Request $req){
         
-       
+    //    $user=Auth::user();
+    //    dump($user);die;
 
         $credentials = array('email'=>$req->email,'password'=>$req->password);
-        // dump(Auth::user());die;
+        
         // // dump(Auth::attempt($credentials));die;
         // dump(Auth::attempt($credentials));die;
         if(Auth::attempt($credentials)){
-            return redirect('list-user');   
+            return redirect('show-user');   
         }    else{
         //     // Session::flash('error', 'Email hoặc mật khẩu không đúng!');
         //     // return redirect('lo');
              return redirect()->back()->with(['flag'=>'danger','message'=>'Email hoặc mật khẩu không đúng']);
         }
+    }
+    public function getDelItemCart($id){
+        $oldCart = Session::has('cart')?Session::get('cart'):null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        if(count($cart->items)>0){
+            Session::put('cart',$cart);
+        }
+        else{
+            Session::forget('cart');
+        }
+        return redirect()->back();
+    }
+    public function getAddtoCart(Request $req,$id){
+        $product = SanPham :: find($id);
+        // $promotion = Promotion_Detail :: where ('id_product','=',$id)->first();
+        $oldCart = Session('cart')?Session::get('cart'):null;
+        
+        $soluong = 1;
+        $cart = new Cart($oldCart);
+        
+        $cart->add($product, $id,$soluong); 
+        //dd($cart);
+        $req->session()->put('cart',$cart);
+        //dd($req->session()->put('cart',$cart));
+        return redirect()->back();
+    }
+    public function addQty(Request $req)
+    {
+        //dd($req->id);
+        $id = $req->id;
+        $product = SanPham :: find($id);
+       // $promotion = Promotion_Detail :: where ('id_product','=',$id)->first();
+       
+        $oldCart = Session('cart')?Session::get('cart'):null;
+        // dd($id);
+
+        $oldCart->totalQty =$req->qty + $oldCart->totalQty - $oldCart->items[$id]['qty'];
+        $oldCart->items[$id]['qty'] = $req->qty;
+        // if( $promotion == null){
+            $oldCart->items[$id]['price'] = $req->qty * $product->giatien;
+     //   } 
+        // else{
+        //     $oldCart->items[$id]['price'] = $req->qty * ($product->unit_price - ($product->unit_price * $promotion->percent)/100);
+        // }
+        $price = 0;
+        foreach ($oldCart->items as $key => $value){
+              $price += $value['price'];
+          }
+        $oldCart->totalPrice = $price;
+        // dd($oldCart);
+        // dd($oldCart);
+        // dd($oldCart->items[64]['qty']);
+        // $soluong = $req->qty;
+        // $cart = new Cart($oldCart);
+        // $cart->add($product, $id, $promotion,$soluong);
+        // $req->session()->put('cart',$cart);
     }
     public function postLogout(){
         Auth::logout();
