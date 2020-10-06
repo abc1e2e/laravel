@@ -16,6 +16,10 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <style>
+        html, body {margin: 0; height: 100%; overflow: auto;}
+        nav{
+        border:solid 1px;
+    }
             /* * {
     margin: 0;
     padding: 0;
@@ -110,110 +114,103 @@ input#submit:hover {
             </div>
         </div>
         <div class="row">
-            <div class="col-md-2"> 
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0 ; display: block;">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            <a class="navbar-brand" href="{{route('show-user')}}">ADMIN</a>
-            </div>
-            <!-- /.navbar-header -->
-    
-            
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    {{-- @if(Auth::user()->position == 1) --}}
-                    <ul class="nav" id="side-menu" style="
-                        list-style-type: none;
-                        margin: 0;
-                        padding: 0;
-                        display: grid;
-                      ">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form" style="width:10%;">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
-                           
-                            <li>
-                                <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        -----------<a href="{{route('list-user')}}">Thong Tin User</a>
-                                    </li>
-                                    {{-- <li>
-                                        <a href="{{route('listcustomer')}}">List Customer</a>
-                                    </li> --}}
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-users fa-fw"></i> KhachHang<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        -----------<a href="{{route('list-kh')}}">Thong Tin KhachHang Dat Hang</a>
-                                    </li>
-                                    {{-- <li>
-                                        <a href="{{route('listcustomer')}}">List Customer</a>
-                                    </li> --}}
-                                </ul>
-                                <!-- /.nav-second-level -->
-                         </li>
-                            <li>
-                            <a href=""><i class="fa fa-cube fa-fw"></i> Quản Lí Sản Phẩm<span class="fa arrow"></span></a>
+        <div class="col-md-2"> 
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0 ; display: block;">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="{{route('show-user')}}">ADMIN</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+      
+        </div>
+        <!-- /.navbar-header -->
+
+        
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                {{-- @if(Auth::user()->position == 1) --}}
+                <ul class="nav" id="side-menu" style="
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    display: grid;
+                  ">
+                   
+                        <!-- /input-group -->
+                       
+                        <li>
+                            <h2><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></h2>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    -----------<a href="{{route('list-sanpham')}}">Danh Sách Sản Phẩm</a>
+                                    -----------<a href="{{route('list-user')}}">Thong Tin User</a>
                                 </li>
-                                <li>
-                                    -----------<a href="{{route('add-sanpham')}}">Thêm Sản Phẩm</a>
-                                </li>
+                                {{-- <li>
+                                    <a href="{{route('listcustomer')}}">List Customer</a>
+                                </li> --}}
                             </ul>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fas fa-shopping-cart"></i>Quản lí đơn hàng<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                    <li>
-                                        -----------<a href="{{route('list-order')}}">Danh sách đơn hàng</a>
-                                    </li>
-                                    {{-- <li>
-                                        <a href="{{route('orderwait')}}">Đơn hàng đang giao</a>
-                                    </li>
-                                     <li>
-                                        <a href="{{route('orderfinish')}}">Đơn hàng đã hoàn thành</a>
-                                    </li> --}}
-                                </ul> 
-                            </li>
                             <!-- /.nav-second-level -->
                         </li>
-                    </ul>
-                </div>
-            </div>       
-            <!-- /.navbar-top-links -->
-        
-            <!-- Navigation -->
-           
-           
-         
+                        <li>
+                        <h2><i class="fa fa-users fa-fw"></i> KhachHang<span class="fa arrow"></span></h2>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    -----------<a href="{{route('list-kh')}}">Thong Tin KhachHang Dat Hang</a>
+                                </li>
+                                {{-- <li>
+                                    <a href="{{route('listcustomer')}}">List Customer</a>
+                                </li> --}}
+                            </ul>
+                            <!-- /.nav-second-level -->
+                     </li>
+                        <li>
+                        <h2><i class="fa fa-cube fa-fw"></i> Quản Lí Sản Phẩm<span class="fa arrow"></span></a></h2>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                -----------<a href="{{route('list-sanpham')}}">Danh Sách Sản Phẩm</a>
+                            </li>
+                            <li>
+                                -----------<a href="{{route('add-sanpham')}}">Thêm Sản Phẩm</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <h2><i class="fas fa-shopping-cart"></i>Quản lí đơn hàng<span class="fa arrow"></span></a></h2>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    -----------<a href="{{route('list-order')}}">Danh sách đơn hàng</a>
+                                </li>
+                                {{-- <li>
+                                    <a href="{{route('orderwait')}}">Đơn hàng đang giao</a>
+                                </li>
+                                 <li>
+                                    <a href="{{route('orderfinish')}}">Đơn hàng đã hoàn thành</a>
+                                </li> --}}
+                            </ul> 
+                        </li>
+                    </li>
+                </ul>
+            </div>
+        </div>       
+        <!-- /.navbar-top-links -->
     
-        </nav>
-        </div>
+        <!-- Navigation -->
+       
+       
+     
+
+    </nav>
+    </div>
         <div class="col-md-10">
         <div id="wrapper">
             <!-- Navigation -->
          
             <!-- Page Content -->
             <div id="page-wrapper">
-                <div class="container-fluid">
+                <div class="container-fluid" style="margin-left: 50px;">
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">Thêm mới sản phẩm

@@ -45,6 +45,7 @@ class PageController extends Controller
   
         
     public function postCheckout(Request $req){
+        
         $cart = Session::get('cart');
          
           foreach ($cart->items as $key => $value){
@@ -55,6 +56,14 @@ class PageController extends Controller
                 return redirect()->back()->with('thongbao','Số lượng bánh vượt quá số lượng trong kho');
             }
           }
+          $validateData =$req->validate(
+            [   'name'=> 'required',
+                'email'=>'required|email',
+                'address'=>'required',
+                'phone'=>'required|numeric',
+                'notes'=>'required'
+            ]);
+    
          
         //   if(Auth::check()){
             $customer= KhachHang::where('email',$req->email);
