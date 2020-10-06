@@ -21,6 +21,9 @@
     .dataTables_wrapper{
         width: 100%;
     }
+    nav{
+        border:solid 1px;
+    }
 </style>
 </head>
 <body>
@@ -39,16 +42,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-2"> 
+    <div class="col-md-2"> 
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0 ; display: block;">
         <div class="navbar-header">
+        <a class="navbar-brand" href="{{route('show-user')}}">ADMIN</a>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-        <a class="navbar-brand" href="{{route('show-user')}}">ADMIN</a>
+      
         </div>
         <!-- /.navbar-header -->
 
@@ -62,19 +66,11 @@
                     padding: 0;
                     display: grid;
                   ">
-                    <li class="sidebar-search">
-                        <div class="input-group custom-search-form" style="width:10%;">
-                            <input type="text" class="form-control" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
+                   
                         <!-- /input-group -->
                        
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
+                            <h2><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></h2>
                             <ul class="nav nav-second-level">
                                 <li>
                                     -----------<a href="{{route('list-user')}}">Thong Tin User</a>
@@ -86,7 +82,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> KhachHang<span class="fa arrow"></span></a>
+                        <h2><i class="fa fa-users fa-fw"></i> KhachHang<span class="fa arrow"></span></h2>
                             <ul class="nav nav-second-level">
                                 <li>
                                     -----------<a href="{{route('list-kh')}}">Thong Tin KhachHang Dat Hang</a>
@@ -98,7 +94,7 @@
                             <!-- /.nav-second-level -->
                      </li>
                         <li>
-                        <a href=""><i class="fa fa-cube fa-fw"></i> Quản Lí Sản Phẩm<span class="fa arrow"></span></a>
+                        <h2><i class="fa fa-cube fa-fw"></i> Quản Lí Sản Phẩm<span class="fa arrow"></span></a></h2>
                         <ul class="nav nav-second-level">
                             <li>
                                 -----------<a href="{{route('list-sanpham')}}">Danh Sách Sản Phẩm</a>
@@ -107,9 +103,10 @@
                                 -----------<a href="{{route('add-sanpham')}}">Thêm Sản Phẩm</a>
                             </li>
                         </ul>
+                        <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fas fa-shopping-cart"></i>Quản lí đơn hàng<span class="fa arrow"></span></a>
+                            <h2><i class="fas fa-shopping-cart"></i>Quản lí đơn hàng<span class="fa arrow"></span></a></h2>
                             <ul class="nav nav-second-level">
                                 <li>
                                     -----------<a href="{{route('list-order')}}">Danh sách đơn hàng</a>
@@ -120,10 +117,8 @@
                                  <li>
                                     <a href="{{route('orderfinish')}}">Đơn hàng đã hoàn thành</a>
                                 </li> --}}
-                            </ul>
-                            <!-- /.nav-second-level -->
+                            </ul> 
                         </li>
-                        <!-- /.nav-second-level -->
                     </li>
                 </ul>
             </div>
